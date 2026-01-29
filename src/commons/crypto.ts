@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import { requiredEnv } from "./config";
 import { CANT_SIGN_JWT_TOKEN } from "../router/accounts";
-import { UNAUTHORIZED } from "./http";
 
 export function signToken(hash: string) {
   try {
