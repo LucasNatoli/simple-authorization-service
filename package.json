@@ -7,8 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "NODE_ENV=production node --env-file .prod.env ./build/index.js",
-    "dev": "NODE_ENV=development nodemon --env-file .dev.env ./build/index.js",
+    "start": "cd build && NODE_ENV=production node --env-file ../.prod.env index.js",
+    "dev": "cd build && NODE_ENV=development nodemon --env-file ../.dev.env index.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
