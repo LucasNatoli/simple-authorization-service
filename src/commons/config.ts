@@ -1,5 +1,6 @@
 import fs from "node:fs";
 
+type EnvironmentVarType = "REST_API_PORT" | "JWT_SECRET" | "USERS_FOLDER" | "LOG_FOLDER" | "LOG_TO_CONSOLE" | "AUTH_DELAY" ;
 /**
  * Verifica si existe la carpeta `folder` y en caso negativo la crea.
  *
@@ -14,7 +15,7 @@ export function ensureFolder(folder: string) {
   }
 }
 
-export function requiredEnv(name: string): string {
+export function requiredEnv(name: EnvironmentVarType): string {
   const value = process.env[name];
   if (!value) {
     throw new Error(`Missing required env var: ${name}`);
@@ -32,13 +33,13 @@ export function requiredEnv(name: string): string {
  * @returns {T} Devuelve el mismo tipo que `fallback`
  */
 export function optionalEnv<T extends string | number | boolean>(
-  name: string,
+  name: EnvironmentVarType,
   fallback: T
 ): T;
-export function optionalEnv(name: string, fallback: number): number;
-export function optionalEnv(name: string, fallback: string): string;
-export function optionalEnv(name: string, fallback: boolean): boolean;
-export function optionalEnv(name: string, fallback: number | string | boolean) {
+export function optionalEnv(name: EnvironmentVarType, fallback: number): number;
+export function optionalEnv(name: EnvironmentVarType, fallback: string): string;
+export function optionalEnv(name: EnvironmentVarType, fallback: boolean): boolean;
+export function optionalEnv(name: EnvironmentVarType, fallback: number | string | boolean) {
   const value = process.env[name];
 
   if (value == null) return fallback;

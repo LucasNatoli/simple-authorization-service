@@ -3,9 +3,9 @@ import path from "path";
 import crypt from "bcrypt";
 import { CANT_COMPARE_PASSWORD, USER_PROFILE_EXISTS } from "./constants";
 import { CredentialsData, ProfileData } from "./types";
-import { ensureFolder } from "../../commons";
+import { ensureFolder, optionalEnv } from "../../commons";
 
-const USERS_FOLDER =  path.resolve(__dirname, "../..", "users");
+const USERS_FOLDER = optionalEnv("USERS_FOLDER", path.resolve(".", "users"));
 
 export class UserProfile {
   private readonly hash: string;

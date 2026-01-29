@@ -1,0 +1,6 @@
+- `REST_API_PORT` (`number`(port), optional). Default: `3000`.
+- `JWT_SECRET` (Obligatoria), Si no existe el sistema aborta.
+- `USERS_FOLDER` (`string`, Optional). Default : `path.resolve(".", "users");`.
+- `LOG_FOLDER` (`string`, Optional). Default : `path.resolve(".", "logs");`.
+- `LOG_TO_CONSOLE` (`true|false` , optional). Default: `false`.
+- `AUTH_DELAY` (`number`(ms), optional). Default: `3000`.

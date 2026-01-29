@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "path";
-import { ensureFolder } from "./config";
+import { ensureFolder, optionalEnv } from "./config";
 
 type SeverityType = "info" | "warn" | "error";
 
@@ -17,10 +17,10 @@ export class Logger {
    * ````js
    * new Logger("http")
    * ```` 
-   * creara los archivos `http_info.log`, `http_warn.log`, `http_error.log`
+   * creará los archivos `http_info.log`, `http_warn.log`, `http_error.log`
    */
   constructor(baseName: string) {
-    const logDir: string = path.resolve(__dirname, "..", "logs");
+    const logDir: string = optionalEnv("LOG_FOLDER", path.resolve(".", "logs"));
     ensureFolder(logDir);
 
     this.files = {
@@ -68,7 +68,7 @@ export class Logger {
   public warn(process: string, message: string) {
     this._writeLog("warn", process, message);
   }
-  
+
   /**
    * Agregar un mensaje al log de errores
    *

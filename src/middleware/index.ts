@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import {
   CONFLICT,
   FORBIDDEN,
-  INTERNAL,
   UNPROCESSABLE,
   Logger,
   HttpError,
@@ -17,7 +16,7 @@ export async function httpErrorHandler(
   res: Response,
   _next: NextFunction
 ) {
-  const logtoconsole = optionalEnv("LOG_TO_CONSOLE", false); // process.env.LOG_TO_CONSOLE === "true" || false;
+  const logtoconsole = optionalEnv("LOG_TO_CONSOLE", false);
   const { status, message } = { ...error };
   const proc = `${req.method} ${req.originalUrl} ${status} ${req.ip}`;
   const response = { success: false, message };
@@ -33,12 +32,10 @@ export async function httpErrorHandler(
       logger.warn(proc, message);
       res.status(status).json(response);
       break;
-
     case FORBIDDEN.status:
       logger.warn(proc, message);
       res.status(status).json(response);
       break;
-
     default:
       logger.error(proc, message);
       res.status(status).json(response);
