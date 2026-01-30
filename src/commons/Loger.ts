@@ -38,7 +38,7 @@ export class Logger {
    * @param {string} message descripción del evento que se agrega al log.
    */
   private _writeLog(severity: SeverityType, process: string, message: string) {
-    const timestamp = Math.floor(Date.now() / 1000); // epoch seconds
+    const timestamp = Math.floor(Date.now());
     const line = `${timestamp} [${process}] ${message}\n`;
     const filePath = path.resolve(this.files[severity]);
 
