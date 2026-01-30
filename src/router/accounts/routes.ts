@@ -1,16 +1,17 @@
 import {
+  sha3Hash,
+  signToken,
+  verifyToken,
   ACCESS_TOKEN,
-  AUTHORIZATION,
   BEARER,
+  HttpError,
+  AUTHORIZATION,
+  BAD_REQUEST,
   CONFLICT,
   CREATED,
   INTERNAL,
   UNAUTHORIZED,
-  HttpError,
-  sha3Hash,
-  BAD_REQUEST,
-  signToken,
-  verifyToken,
+  CANT_SIGN_JWT_TOKEN,
 } from "../../commons";
 import crypt from "bcrypt";
 
@@ -19,7 +20,6 @@ import { UserProfile } from "./UserProfile";
 import { CredentialsData, ProfileData } from "./types";
 import {
   CANT_COMPARE_PASSWORD,
-  CANT_SIGN_JWT_TOKEN,
   INVALID_BODY_DATA,
   INVALID_LOGIN_CREDENTIALS,
   USER_PROFILE_EXISTS,
