@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { requiredEnv } from "./config";
-import { CANT_SIGN_JWT_TOKEN } from "../router/accounts";
+
+export const CANT_SIGN_JWT_TOKEN = "Can't sign JWT token."
 
 export function signToken(hash: string) {
   try {

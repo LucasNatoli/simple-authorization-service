@@ -2,7 +2,6 @@ export const BASE_URL = "/v1/accounts";
 export const USER_FOLDER_CANT_CREATE = "Can't create user account folder."
 export const USER_FOLDER_EXISTS = "The folder already exists."
 export const CANT_COMPARE_PASSWORD = "Can't compare user password."
-export const CANT_SIGN_JWT_TOKEN = "Can't sign JWT token."
 export const USER_PROFILE_CANT_READ = "Can't read user profile."
 export const USER_PROFILE_CANT_WRITE = "Can't write user profile."
 export const USER_PROFILE_EXISTS = "The profile already exists."

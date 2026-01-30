@@ -11,4 +11,4 @@ export const sleep = (ms:number) => new Promise(resolve => setTimeout(resolve, m
 export { Logger } from "./Loger";
 export { requiredEnv, optionalEnv, ensureFolder } from "./config";
 export * from "./http";
-export {signToken, verifyToken} from "./crypto";
+export {CANT_SIGN_JWT_TOKEN, signToken, verifyToken} from "./crypto";
