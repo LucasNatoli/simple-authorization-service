@@ -19,6 +19,7 @@ export async function verifyToken(token: string): Promise<Boolean> {
     const secret = requiredEnv("JWT_SECRET");
     jwt.verify(token, secret, (err, decoded) => {
       //TODO: discriminar error (rejected, expired, etc)
+      //Falla con el token vencido (devuelve 500)
       if (err) reject(false);
       else {
         console.log(decoded);
