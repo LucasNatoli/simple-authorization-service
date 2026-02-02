@@ -2,8 +2,7 @@
 *.env
 
 # Build y Tests
-build/*
-tests/*
+tests
 
 # Logs
 *.log
