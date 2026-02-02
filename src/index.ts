@@ -1,5 +1,5 @@
-import express, { Request, Response } from "express";
-import { optionalEnv } from "./commons";
+import express, { NextFunction, Request, Response } from "express";
+import { HttpError, INTERNAL, optionalEnv } from "./commons";
 import { router } from "./router";
 import { httpErrorHandler } from "./middleware";
 
@@ -14,7 +14,10 @@ app.get("/", (_req: Request, res: Response) => {
   });
 });
 router(app);
-app.use(httpErrorHandler);
+app.get("/fail", (req:Request, res:Response, next: NextFunction)=>{
+  httpErrorHandler(new HttpError(INTERNAL), req, res, next)
+  //res.status(500).send
+})
 app.listen(PORT, () => {
   console.log(`🚀 REST API escuchando en: http://localhost:${PORT}`);
 });
