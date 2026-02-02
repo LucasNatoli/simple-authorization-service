@@ -22,11 +22,12 @@ export async function checkToken(
     if (!token) {
       next(new HttpError(UNAUTHORIZED));
     } else {
-      if (await verifyToken(token)) next();
-      else next(new HttpError(UNAUTHORIZED));
+      const tokenOk = await verifyToken(token)
+      if (tokenOk) next();
     }
   } catch (error) {
-    next(new HttpError(INTERNAL));
+    if (error === false) next(UNAUTHORIZED); // await verifyToken fails
+    else next(new HttpError(INTERNAL)) // cualquier otro imprevisto;
   }
 }
 
