@@ -2,14 +2,14 @@
   "name": "typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/index.ts",
+  "main": "./dist/index.ts",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "start": "cd build && NODE_ENV=production node --env-file ../.prod.env index.js",
-    "dev": "cd build && NODE_ENV=development nodemon --env-file ../.dev.env index.js",
-    "build": "tsc",
+    "start": "cd dist && NODE_ENV=production node --env-file ../.prod.env index.js",
+    "dev": "cd dist && NODE_ENV=development nodemon --env-file ../.dev.env index.js",
+    "dist": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
