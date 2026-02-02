@@ -31,7 +31,7 @@ function getHeader(req: Request, name: string): string | undefined {
   const value = req.headers[name];
   return Array.isArray(value) ? value[0] : value;
 }
-
+//TODO: mover a middleware 
 export async function extractCredentials(req: Request): Promise<CredentialsData> {
   const { email, password } = req.body;
   if (isCredentialsData({ email, password })) {
@@ -41,7 +41,7 @@ export async function extractCredentials(req: Request): Promise<CredentialsData>
     throw new Error(INVALID_LOGIN_CREDENTIALS);
   }
 }
-
+//TODO: mover a middleware 
 export async function extractProfile(req: Request): Promise<ProfileData> {
   const { fullname, email, password } = req.body;
   if (isProfileData({ fullname, email, password })) {
