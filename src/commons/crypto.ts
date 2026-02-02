@@ -18,6 +18,7 @@ export async function verifyToken(token: string): Promise<Boolean> {
   return new Promise((resolve, reject) => {
     const secret = requiredEnv("JWT_SECRET");
     jwt.verify(token, secret, (err, decoded) => {
+      //TODO: discriminar error (rejected, expired, etc)
       if (err) reject(false);
       else {
         console.log(decoded);
