@@ -1,3 +1,6 @@
+# MacOs metada
+.DS_Store
+
 # Env files
 *.env
 
